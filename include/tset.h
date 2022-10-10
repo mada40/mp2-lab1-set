@@ -17,7 +17,7 @@ private:
   TBitField BitField; // битовое поле для хранения характеристического вектора
 public:
   TSet(int mp);
-  TSet(const TSet &s);       // конструктор копирования
+  TSet(const TSet &s) = default;       // конструктор копирования
   TSet(const TBitField &bf); // конструктор преобразования типа
   operator TBitField();      // преобразование типа к битовому полю
   // доступ к битам
@@ -28,7 +28,7 @@ public:
   // теоретико-множественные операции
   int operator== (const TSet &s) const; // сравнение
   int operator!= (const TSet &s) const; // сравнение
-  TSet& operator=(const TSet &s);  // присваивание
+  TSet& operator=(const TSet &s) = default;  // присваивание
   TSet operator+ (const int Elem); // объединение с элементом
                                    // элемент должен быть из того же универса
   TSet operator- (const int Elem); // разность с элементом
